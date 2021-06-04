@@ -1,0 +1,13 @@
+.main-container-component{
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 0 calc(10px + 0.35vw);
+    padding:  0px;
+}
+
+.child-components{
+
+    grid-column: 3/11;
+    margin: 20px 0;
+}

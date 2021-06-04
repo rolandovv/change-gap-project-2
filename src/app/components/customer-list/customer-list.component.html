@@ -1,0 +1,30 @@
+<div class="custome-list-container">
+  <div class="component-title-wrapper">
+    <h3 class="compoent-title">Customers' details</h3>
+  </div>
+  <div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <!-- <th scope="col">ID</th> -->
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="underlineHover" *ngFor="let customer of customers" (click)="viewCustomer(customer._id)">
+            <!-- <td>{{ customer._id }}</td> -->
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.address }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.country }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

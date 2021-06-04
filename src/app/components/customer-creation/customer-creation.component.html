@@ -1,0 +1,66 @@
+<div class="customer-creation-container">
+  <div class="component-title-wrapper">
+    <h3 class="compoent-title">Customer Registration</h3>
+  </div>
+  
+  <div class="card my-5">
+    <div class="card-body">
+      <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+        <div class="form-group">
+          <label for="customerName">Name</label>
+          <input type="text" #customerName="ngModel" class="form-control" [(ngModel)]="customer.name"
+            name="customerName" placeholder="Enter your name" required
+            [ngClass]="{'invalid-textbox' :signUpForm.submitted && !customerName.valid }">
+          <div *ngIf="signUpForm.submitted && !customerName.valid">
+            <label class="validation-message">This field is required.</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" #address="ngModel" class="form-control" [(ngModel)]="customer.address" name="address"
+            placeholder="Enter your address" required
+            [ngClass]="{'invalid-textbox' :signUpForm.submitted && !address.valid }">
+          <div *ngIf="signUpForm.submitted && !address.valid">
+            <label class="validation-message">This field is required.</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" #phone="ngModel" class="form-control" [(ngModel)]="customer.phone" name="phone"
+            placeholder="Enter your phone" required
+            [ngClass]="{'invalid-textbox' :signUpForm.submitted && !phone.valid }">
+          <div *ngIf="signUpForm.submitted && !phone.valid">
+            <label class="validation-message">This field is required.</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" #country="ngModel" class="form-control" [(ngModel)]="customer.country" name="country"
+            placeholder="Enter your country" required
+            [ngClass]="{'invalid-textbox' :signUpForm.submitted && !country.valid }">
+          <div *ngIf="signUpForm.submitted && !country.valid">
+            <label class="validation-message">This field is required.</label>
+          </div>
+        </div>
+
+        <!-- <input type="submit" value="Sign Up"> -->
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+
+      <!-- Success message -->
+      <div class="success" *ngIf="showSucessMessage">
+        Custumer created successfully!
+      </div>
+
+      <!-- Error message -->
+      <div class="alert" *ngIf="serverErrorMessages">
+        {{serverErrorMessages}}
+      </div>
+
+    </div>
+  </div>
+
+</div>
